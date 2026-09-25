@@ -575,7 +575,7 @@ inline half2 ComputeCombineDownsampledOcclusionFromTemporal( const half2 aScreen
 	const half4 o0123 = half4( odC.x, odL.x, odR.x, odM.x );
 	const half4 d0123 = half4( odC.y, odL.y, odR.y, odM.y );
 
-	half4 depthWeight0123 = saturate( 1.0 / ( abs( Linear01ToSampledDepth( d0123 ) - ( aDepthSample ).xxxx ) * 32768 + 0.95 ) );
+	float4 depthWeight0123 = saturate( 1.0 / ( abs( Linear01ToSampledDepth( d0123 ) - ( aDepthSample ).xxxx ) * 32768 + 0.95 ) );
 
 	const half4 pixelDeltaWeight = half4( screenPosPixelsDelta.x * screenPosPixelsDelta.y + 0.5,
 											1.0 - screenPosPixelsDelta.x,
